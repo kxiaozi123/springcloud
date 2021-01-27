@@ -1,0 +1,14 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: eurekaserver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: false  #关闭作为客户端从eureka server获取信息（开启启动的时候 不报错）
+    register-with-eureka: false #不将自己作为客户端进行注册
+#  server:
+#    enable-self-preservation: false 关闭自我保护
+#    eviction-interval-timer-in-ms: 3000 超过3s自动清除
