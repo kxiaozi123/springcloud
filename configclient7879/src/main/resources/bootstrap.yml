@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      label: dev
+      name: clients
+      profile: prod
+      fail-fast: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
