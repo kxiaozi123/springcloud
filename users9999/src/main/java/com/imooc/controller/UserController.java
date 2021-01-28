@@ -11,7 +11,9 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-
+/**
+ * Ribbon是基于客户端的负载均衡
+ */
 @RestController
 @Slf4j
 public class UserController {
@@ -36,7 +38,10 @@ public class UserController {
     public String findAllProduct()
     {
         log.info("进入用户服务...");
-//        ServiceInstance serviceInstance = loadBalancerClient.choose("product");
+//        ServiceInstance serviceInstance = loadBalancerClient.choose("products");
+//        System.out.println(serviceInstance.getHost());
+//        System.out.println(serviceInstance.getPort());
+//        System.out.println(serviceInstance.getUri());
 //        RestTemplate restTemplate=new RestTemplate();
 //        String msg = restTemplate.
 //                getForObject("http://"+serviceInstance.getHost()+":"+serviceInstance.getPort()+"/product/findAll",

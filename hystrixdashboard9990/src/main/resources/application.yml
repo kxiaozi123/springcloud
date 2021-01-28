@@ -1,0 +1,12 @@
+server:
+  port: 9990
+spring:
+  application:
+    name: hystrix-dashboard
+#不往注册中心注册也可以
+#  cloud:
+#    consul:
+#      port: 8500
+#      host: localhost
+#      discovery:
+#        service-name: ${spring.application.name}

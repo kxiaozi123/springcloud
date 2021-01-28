@@ -1,6 +1,6 @@
-package com.imooc;
+package com.imooc.springcloud;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class Users9999ApplicationTests {
+public class HyStrixDashBoardApplicationTests {
 
     @Test
     public void contextLoads() {

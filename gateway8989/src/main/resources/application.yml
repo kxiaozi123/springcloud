@@ -1,0 +1,41 @@
+server:
+  port: 8989
+spring:
+  application:
+    name: gateway
+  cloud:
+    consul:
+      port: 8500
+      host: localhost
+      discovery:
+        service-name: ${spring.application.name}
+    gateway:
+      routes:
+        - id: user_route
+          #uri: http://localhost:9999/
+          uri: lb://users
+          predicates:
+            - Path=/feign/** #路由规则
+
+        - id: product_route
+          #uri: http://localhost:9998/
+          uri: lb://products
+          predicates:
+            - Path=/product/**
+            #- After=2021-01-28T14:38:17.542+08:00[Asia/Shanghai] 前三个用的比较多
+            #- Before=2021-01-28T14:41:17.542+08:00[Asia/Shanghai]
+            #- Between=2021-01-28T14:42:17.542+08:00[Asia/Shanghai], 2021-01-28T14:44:17.542+08:00[Asia/Shanghai]
+            #- Cookie=username, kk
+            #- Cookie=username, [A-Za-z0-9]+
+            #- Header=X-Request-Id, \d+ #用的不多
+#          filters:
+#            - AddRequestParameter=productId, 1
+#            - AddResponseHeader=username, kk123
+      discovery:
+        locator:
+          enabled: true            #根据服务名动态获取路由
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #暴露路由规则web端点  /actuator/gateway/routes

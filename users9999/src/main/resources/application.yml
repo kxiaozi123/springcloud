@@ -9,3 +9,21 @@ spring:
       host: localhost
       discovery:
         service-name: ${spring.application.name}
+#products:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full
+        connectTimeOut: 5000 #连接时间
+        readTimeOut: 5000 #最大等待时长
+  hystrix:
+    enabled: true
+logging:
+  level:
+    com:
+      imooc:
+        client: debug
